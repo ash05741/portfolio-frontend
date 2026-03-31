@@ -1,0 +1,22 @@
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+body {
+    cursor: none !important;
+};
+
+a,
+button,
+input,
+textarea,
+select,
+label,
+[role="button"] {
+  cursor: none !important;
+};
+
+html {
+  scroll-behavior: smooth;
+}
