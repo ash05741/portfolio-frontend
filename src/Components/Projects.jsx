@@ -2,7 +2,7 @@ import { motion } from "framer-motion"; // Note: changed from "motion/react" to 
 import { FaGithub } from "react-icons/fa";
 import { Globe } from "lucide-react";
 import finora from "../assets/finora.png";
-import Weather from "../assets/weather.png";
+import Weather from "../assets/Weather.png";
 
 export default function Projects({ className }) {
   // UPGRADE 1: Changed tech string to an array for dynamic badges
