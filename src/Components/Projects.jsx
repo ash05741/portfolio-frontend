@@ -3,6 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { Globe } from "lucide-react";
 import finora from "../assets/finora.png";
 import Weather from "../assets/Weather.png";
+import Bot from "../assets/Bot.png";
 
 export default function Projects({ className }) {
   // UPGRADE 1: Changed tech string to an array for dynamic badges
@@ -16,16 +17,16 @@ export default function Projects({ className }) {
       github: "https://github.com/ash05741/Finora",
       live: "#",
     },
-    {
-      title: "Developer Portfolio",
+     {
+      title: "AI CLI Developer Assistant",
       description:
-        "Modern developer portfolio engineered with dynamic routing, custom cursor interactions, and highly optimized Framer Motion animations.",
-      tech: ["React", "Tailwind", "Framer Motion"],
-      image: "/project2.png", 
-      github: "#",
+        "A decoupled, full-stack Command Line Interface (CLI) tool designed to eliminate context-switching. It allows developers to save and fetch reusable code snippets from a cloud database and features an integrated Google Gemini AI agent for real-time coding assistance directly within the terminal.",
+      tech: ["Node.js", "Express", "MongoDB", "Google Gemini API"],
+      image: Bot, // Make sure to import your image variable at the top of your file
+      github: "https://github.com/ash05741/cli-assistant",
       live: "#",
     },
-    {
+      {
       title: "Weather Forecast App",
       description:
         "A responsive web application that fetches real-time weather data and 5-day forecasts. Engineered to handle asynchronous API requests, complex JSON data mapping, and dynamic data visualization within a modern, minimalist UI.",

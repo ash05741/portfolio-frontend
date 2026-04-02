@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-20">
 
-          {/* Logo */}
+          {/* 1. LEFT SIDE: Logo */}
           <Link to="/" className="sm:text-4xl flex gap-1 tracking-tight
           text-3xl font-bold 
           transition-all duration-300 ease-out
@@ -23,53 +23,56 @@ export default function Navbar() {
             <span className="text-blue-400 font-bold">S</span>
           </Link>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center text-slate-600  dark:text-slate-300 space-x-13 text-lg">
-
-            <Link
-              to="/about"
-              className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
-            >
-              About
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              to="/projects"
-              className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
-            >
-              Projects
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              to="/skills"
-              className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
-            >
-              Skills
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              to="/contact"
-              className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
-            >
-              Contact Me
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
-            </Link>
-
-            <ThemeToggle />
+          {/* 2. RIGHT SIDE: Added the text color classes here so the toggle inherits them! */}
+          <div className="flex items-center space-x-4 md:space-x-13 text-slate-600 dark:text-slate-300">
             
+            {/* Desktop Links Only (Hidden on mobile) */}
+            <div className="hidden md:flex items-center space-x-13 text-lg">
+              <Link
+                to="/about"
+                className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
+              >
+                About
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </Link>
 
+              <Link
+                to="/projects"
+                className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
+              >
+                Projects
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                to="/skills"
+                className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
+              >
+                Skills
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                to="/contact"
+                className="group relative font-medium transition-all duration-300 ease-out hover:text-black dark:hover:text-white hover:-translate-y-[4px]"
+              >
+                Contact Me
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-400 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </Link>
+            </div>
+
+            {/* Toggle (Visible on both desktop and mobile, now correctly colored) */}
+            <ThemeToggle />
+
+            {/* Mobile Button (Hidden on desktop) */}
+            <button
+              className="md:hidden text-slate-600 hover:text-black dark:hover:text-white"
+              onClick={() => setMobileMenuIsOpen(prev => !prev)}
+            >
+              {mobileMenuIsOpen ? <X /> : <Menu />}
+            </button>
+            
           </div>
-
-          {/* Mobile Button */}
-          <button
-            className="md:hidden text-slate-600 hover:text-black"
-            onClick={() => setMobileMenuIsOpen(prev => !prev)}
-          >
-            {mobileMenuIsOpen ? <X /> : <Menu />}
-          </button>
         </div>
       </div>
 
