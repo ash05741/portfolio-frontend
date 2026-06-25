@@ -17,7 +17,7 @@ export default function Projects({ className }) {
       github: "https://github.com/ash05741/Finora",
       live: "#",
     },
-     {
+    {
       title: "AI CLI Developer Assistant",
       description:
         "A decoupled, full-stack Command Line Interface (CLI) tool designed to eliminate context-switching. It allows developers to save and fetch reusable code snippets from a cloud database and features an integrated Google Gemini AI agent for real-time coding assistance directly within the terminal.",
@@ -26,7 +26,7 @@ export default function Projects({ className }) {
       github: "https://github.com/ash05741/cli-assistant",
       live: "#",
     },
-      {
+    {
       title: "Weather Forecast App",
       description:
         "A responsive web application that fetches real-time weather data and 5-day forecasts. Engineered to handle asynchronous API requests, complex JSON data mapping, and dynamic data visualization within a modern, minimalist UI.",
@@ -35,14 +35,22 @@ export default function Projects({ className }) {
       github: "https://github.com/ash05741/Weather_APP",
       live: "#",
     },
+    {
+      title: "DevSync",
+      description: "A production-ready, multi-tenant SaaS project management platform. Features a custom-built, real-time Kanban board for task tracking, secure isolated workspaces, and a responsive glassmorphic UI driven by Tailwind v4.",
+      tech: ["React", "Node.js", "TypeScript", "Express", "MongoDB", "Tailwind CSS"],
+      image: devsyncImage, // Make sure to import your image variable at the top of your file
+      github: "https://github.com/ash05741/DevSync",
+      live: "https://your-vercel-domain.vercel.app", // Replace with your actual live Vercel link
+    }
   ];
 
   return (
     <section className={`min-h-screen bg-[#f8fafc] dark:bg-slate-950 py-24 ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Title */}
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -63,9 +71,8 @@ export default function Projects({ className }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, type: "spring", stiffness: 40 }}
-                className={`grid md:grid-cols-2 gap-12 items-center ${
-                  isReverse ? "md:[&>*:first-child]:order-2" : ""
-                }`}
+                className={`grid md:grid-cols-2 gap-12 items-center ${isReverse ? "md:[&>*:first-child]:order-2" : ""
+                  }`}
               >
                 {/* IMAGE CARD */}
                 {/* UPGRADE 3: Added targeted hover lift and glow to the image */}
@@ -91,8 +98,8 @@ export default function Projects({ className }) {
                   {/* UPGRADE 4: Scannable Tech Badges */}
                   <div className="flex flex-wrap gap-3 mt-6">
                     {project.tech.map((tag, i) => (
-                      <span 
-                        key={i} 
+                      <span
+                        key={i}
                         className="px-4 py-1.5 text-sm font-medium rounded-full bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20"
                       >
                         {tag}

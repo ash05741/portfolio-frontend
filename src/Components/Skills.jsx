@@ -22,7 +22,7 @@ export default function Skills({ className }) {
     { name: "Git & GitHub", level: 85 },
     { name: "Firebase", level: 75 },
     { name: "Postman", level: 80 },
-    { name: "VS Code", level: 90 },
+    { name: "Antigravity", level: 90 },
     { name: "Figma (UI Design)", level: 75 },
   ];
 
@@ -99,7 +99,7 @@ export default function Skills({ className }) {
   return (
     <section className={`min-h-screen py-24 bg-[#f8fafc] dark:bg-slate-950 ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export default function Skills({ className }) {
         </motion.h2>
 
         {/* Cards Grid with Staggered Container */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
