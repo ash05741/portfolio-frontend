@@ -1,12 +1,12 @@
-import { motion } from "framer-motion"; // Note: changed from "motion/react" to standard framer-motion
+import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import { Globe } from "lucide-react";
+import { Globe, ImageOff } from "lucide-react";
 import finora from "../assets/finora.png";
 import Weather from "../assets/Weather.png";
 import Bot from "../assets/Bot.png";
+import DevSync from "../assets/DevSync.png";
 
 export default function Projects({ className }) {
-  // UPGRADE 1: Changed tech string to an array for dynamic badges
   const projects = [
     {
       title: "Finora",
@@ -22,7 +22,7 @@ export default function Projects({ className }) {
       description:
         "A decoupled, full-stack Command Line Interface (CLI) tool designed to eliminate context-switching. It allows developers to save and fetch reusable code snippets from a cloud database and features an integrated Google Gemini AI agent for real-time coding assistance directly within the terminal.",
       tech: ["Node.js", "Express", "MongoDB", "Google Gemini API"],
-      image: Bot, // Make sure to import your image variable at the top of your file
+      image: Bot,
       github: "https://github.com/ash05741/cli-assistant",
       live: "#",
     },
@@ -37,12 +37,14 @@ export default function Projects({ className }) {
     },
     {
       title: "DevSync",
-      description: "A production-ready, multi-tenant SaaS project management platform. Features a custom-built, real-time Kanban board for task tracking, secure isolated workspaces, and a responsive glassmorphic UI driven by Tailwind v4.",
+      description:
+        "A production-ready, multi-tenant SaaS project management platform. Features a custom-built, real-time Kanban board for task tracking, secure isolated workspaces, and a responsive glassmorphic UI driven by Tailwind v4.",
       tech: ["React", "Node.js", "TypeScript", "Express", "MongoDB", "Tailwind CSS"],
-      image: devsyncImage, // Make sure to import your image variable at the top of your file
+      image: DevSync,
       github: "https://github.com/ash05741/DevSync",
-      live: "https://your-vercel-domain.vercel.app", // Replace with your actual live Vercel link
-    }
+      live: "https://dev-sync-ashen.vercel.app/",
+      featured: true,
+    },
   ];
 
   return (
@@ -66,27 +68,43 @@ export default function Projects({ className }) {
             return (
               <motion.div
                 key={index}
-                // UPGRADE 2: Use whileInView so they animate on scroll!
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, type: "spring", stiffness: 40 }}
-                className={`grid md:grid-cols-2 gap-12 items-center ${isReverse ? "md:[&>*:first-child]:order-2" : ""
-                  }`}
+                className="grid md:grid-cols-2 gap-12 items-center"
               >
                 {/* IMAGE CARD */}
-                {/* UPGRADE 3: Added targeted hover lift and glow to the image */}
-                <div className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:hover:shadow-blue-500/20">
+                <div
+                  className={`group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:hover:shadow-blue-500/20 ${isReverse ? "md:order-2" : "md:order-1"
+                    }`}
+                >
                   <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
-                  />
+
+                  {project.featured && (
+                    <span className="absolute top-4 left-4 z-20 px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-blue-600 text-white shadow-md">
+                      Featured
+                    </span>
+                  )}
+
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full min-h-[240px] bg-slate-200 dark:bg-slate-800 text-slate-400">
+                      <ImageOff size={36} />
+                    </div>
+                  )}
                 </div>
 
                 {/* TEXT CONTENT */}
-                <div className="flex flex-col">
+                <div
+                  className={`flex flex-col ${isReverse ? "md:order-1" : "md:order-2"
+                    }`}
+                >
                   <h3 className="text-3xl font-bold text-slate-800 dark:text-white">
                     {project.title}
                   </h3>
@@ -95,7 +113,7 @@ export default function Projects({ className }) {
                     {project.description}
                   </p>
 
-                  {/* UPGRADE 4: Scannable Tech Badges */}
+                  {/* Tech Badges */}
                   <div className="flex flex-wrap gap-3 mt-6">
                     {project.tech.map((tag, i) => (
                       <span
@@ -119,7 +137,6 @@ export default function Projects({ className }) {
                       Source Code
                     </a>
 
-                    {/* Only show Live button if there is a real link */}
                     {project.live !== "#" && (
                       <a
                         href={project.live}
@@ -127,12 +144,14 @@ export default function Projects({ className }) {
                         rel="noreferrer"
                         className="group flex items-center gap-2 font-medium text-slate-700 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 transition-colors"
                       >
-                        <Globe className="text-xl group-hover:-translate-y-1 transition-transform" />
+                        <Globe
+                          size={20}
+                          className="group-hover:-translate-y-1 transition-transform"
+                        />
                         Live Demo
                       </a>
                     )}
                   </div>
-
                 </div>
               </motion.div>
             );

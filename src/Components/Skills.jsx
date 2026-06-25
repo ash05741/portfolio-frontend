@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
+import { Code2, Server, Wrench } from "lucide-react";
 
 export default function Skills({ className }) {
-  // UPGRADE 1: Updated data to reflect a modern Full-Stack MERN developer
   const frontend = [
     { name: "React", level: 90 },
     { name: "JavaScript", level: 85 },
@@ -27,13 +27,12 @@ export default function Skills({ className }) {
   ];
 
   /* ---------------- Framer Motion Variants ---------------- */
-  // UPGRADE 2: Added variants for cascading staggered animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delay each card by 0.2s
+        staggerChildren: 0.2,
       },
     },
   };
@@ -44,55 +43,71 @@ export default function Skills({ className }) {
   };
 
   /* ---------------- Skill Bar ---------------- */
-  const SkillBar = ({ skill }) => (
-    <div className="space-y-2">
-      <div className="flex justify-between text-sm font-medium text-slate-700 dark:text-slate-300">
-        <span>{skill.name}</span>
-        {/* Removed the raw percentage number for a more professional look */}
-      </div>
+  const SkillBar = ({ skill }) => {
+    const isStrong = skill.level >= 85;
+    return (
+      <div className="space-y-2">
+        <div className="flex justify-between items-center text-sm font-medium text-slate-700 dark:text-slate-300">
+          <span className="flex items-center gap-2">
+            {skill.name}
+            {isStrong && (
+              <span className="text-[10px] uppercase tracking-wide font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded-md">
+                Core
+              </span>
+            )}
+          </span>
+        </div>
 
-      <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-          className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"
-        />
+        <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: `${skill.level}%` }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+            className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   /* ---------------- Skill Card ---------------- */
-  const SkillCard = ({ title, skills }) => (
-    <motion.variants variants={cardVariants}>
-      <motion.div
-        variants={cardVariants}
-        className="
-          group
-          h-full
-          rounded-2xl
-          p-8
-          backdrop-blur-lg
-          bg-white/60 dark:bg-slate-900/60
-          border border-slate-200 dark:border-slate-700
-          shadow-lg
-          hover:shadow-2xl hover:border-blue-500/30
-          transition-all duration-300
-          hover:-translate-y-2
-        "
-      >
-        <h3 className="text-2xl font-bold mb-8 text-slate-800 dark:text-white flex items-center gap-3">
+  const SkillCard = ({ title, skills, icon, blurb }) => (
+    <motion.div
+      variants={cardVariants}
+      className="
+        group
+        h-full
+        rounded-2xl
+        p-8
+        backdrop-blur-lg
+        bg-white/60 dark:bg-slate-900/60
+        border border-slate-200 dark:border-slate-700
+        shadow-lg
+        hover:shadow-2xl hover:border-blue-500/30
+        transition-all duration-300
+        hover:-translate-y-2
+      "
+    >
+      <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md shadow-blue-500/30">
+          {icon}
+        </div>
+        <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
           {title}
         </h3>
+      </div>
 
-        <div className="space-y-6">
-          {skills.map((skill, i) => (
-            <SkillBar key={i} skill={skill} />
-          ))}
-        </div>
-      </motion.div>
-    </motion.variants>
+      <p className="text-sm text-slate-500 dark:text-slate-400 mb-8">
+        {blurb}
+      </p>
+
+      <div className="space-y-6">
+        {skills.map((skill, i) => (
+          <SkillBar key={i} skill={skill} />
+        ))}
+      </div>
+    </motion.div>
   );
 
   /* ---------------- Section ---------------- */
@@ -118,9 +133,24 @@ export default function Skills({ className }) {
           viewport={{ once: true, margin: "-100px" }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
-          <SkillCard title="Frontend Engineering" skills={frontend} />
-          <SkillCard title="Backend & Systems" skills={backend} />
-          <SkillCard title="Architecture & Tools" skills={tools} />
+          <SkillCard
+            title="Frontend Engineering"
+            icon={<Code2 size={20} />}
+            blurb="Building responsive, accessible interfaces with modern React tooling."
+            skills={frontend}
+          />
+          <SkillCard
+            title="Backend & Systems"
+            icon={<Server size={20} />}
+            blurb="Designing APIs and data layers that scale cleanly."
+            skills={backend}
+          />
+          <SkillCard
+            title="Architecture & Tools"
+            icon={<Wrench size={20} />}
+            blurb="The workflow and tooling that ties projects together."
+            skills={tools}
+          />
         </motion.div>
 
       </div>

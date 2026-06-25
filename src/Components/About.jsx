@@ -18,8 +18,8 @@ export default function About() {
   return (
     <section className="relative min-h-screen bg-[#f5f5f7] dark:bg-slate-950 overflow-hidden flex items-center py-24">
 
-      {/* Floating Shapes */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating Shapes (decorative only) */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <span className="absolute top-28 left-1/4 text-blue-400 text-2xl">◯</span>
         <span className="absolute bottom-32 right-20 text-pink-500 text-xl">△</span>
         <span className="absolute top-40 right-1/3 text-blue-400 text-xl">◜</span>
@@ -39,7 +39,7 @@ export default function About() {
           </h2>
 
           <p className="mt-8 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-            I'm <span className="text-slate-800 dark:text-white font-semibold">Asmit Shukla</span>, 
+            I'm <span className="text-slate-800 dark:text-white font-semibold">Asmit Shukla</span>,
             a Full-Stack Software Engineer who thrives at the intersection of robust logic and high-fidelity design.
           </p>
 
@@ -52,7 +52,7 @@ export default function About() {
           </p>
 
           {/* Highlights Grid with Staggered Animation */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -65,7 +65,7 @@ export default function About() {
               { stat: "UI/UX", label: "Design Focus" },
               { stat: "API", label: "Architecture" },
             ].map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 variants={itemVariants}
                 className="bg-white dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all duration-300"
@@ -84,8 +84,9 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 1, type: "spring", stiffness: 50 }}
           className="relative hidden md:flex justify-center"
+          aria-hidden="true"
         >
-          <div className="text-[350px] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-pink-400/20 to-blue-500/10 select-none">
+          <div className="text-[min(350px,22vw)] lg:text-[350px] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-pink-400/20 to-blue-500/10 select-none leading-none">
             ∆
           </div>
         </motion.div>
