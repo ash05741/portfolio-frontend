@@ -15,25 +15,25 @@ const socialLinks = [
     name: "Twitter",
     href: "https://x.com/asmitshukla05",
     icon: FaTwitter,
-    hoverClass: "group-hover:text-orange-700 hover:-translate-y-1 transition-transform",
+    hoverClass: "group-hover:text-orange-700 md:hover:-translate-y-1 transition-transform",
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/asmit-shukla-2a8591258",
     icon: FaLinkedinIn,
-    hoverClass: "group-hover:text-orange-700 hover:-translate-y-1 transition-transform",
+    hoverClass: "group-hover:text-orange-700 md:hover:-translate-y-1 transition-transform",
   },
   {
     name: "GitHub",
     href: "https://github.com/ash05741",
     icon: FaGithub,
-    hoverClass: "group-hover:text-orange-700 hover:-translate-y-1 transition-transform",
+    hoverClass: "group-hover:text-orange-700 md:hover:-translate-y-1 transition-transform",
   },
   {
     name: "Website",
     href: "https://your-domain-here.com",
     icon: Globe,
-    hoverClass: "group-hover:text-orange-700 hover:-translate-y-1 transition-transform",
+    hoverClass: "group-hover:text-orange-700 md:hover:-translate-y-1 transition-transform",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Herosection() {
       <section className="relative min-h-screen flex items-center z-0 py-20 overflow-hidden border-b-4 border-[#1A1A1A]">
 
         {/* ===== Main Container (Editorial Grid) ===== */}
-        <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-8 items-center relative z-10 pb-16 md:pb-0">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -62,10 +62,10 @@ export default function Herosection() {
 
             {/* NAME BLOCK */}
             <div className="mb-10">
-              <h1 className="text-7xl md:text-[7rem] font-black tracking-tighter leading-[0.85] uppercase">
+              <h1 className="text-6xl sm:text-7xl md:text-[7rem] font-black tracking-tight md:tracking-tighter leading-[0.85] uppercase">
                 Asmit
                 <br />
-                <span className="text-transparent [-webkit-text-stroke:3px_#1A1A1A]">Shukla</span>
+                <span className="text-transparent [-webkit-text-stroke:1.5px_#1A1A1A] md:[-webkit-text-stroke:3px_#1A1A1A]">Shukla</span>
               </h1>
             </div>
 
@@ -125,11 +125,9 @@ export default function Herosection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:flex col-span-5 justify-center items-center relative"
           >
-            {/* A massive asterisk or geometric star giving that raw print vibe */}
             <div className="text-[350px] leading-none font-serif text-[#1A1A1A] opacity-10 select-none absolute">
               *
             </div>
-            {/* Abstract framed placeholder (could be replaced with a solid professional headshot or 3D render later) */}
             <div className="w-full aspect-square border-4 border-[#1A1A1A] bg-white shadow-[12px_12px_0_0_#1A1A1A] flex flex-col justify-between p-6 relative z-10">
               <div className="flex justify-between w-full border-b-2 border-[#1A1A1A] pb-4">
                 <span className="font-bold text-sm uppercase">Fig. 01</span>
@@ -144,14 +142,14 @@ export default function Herosection() {
           </motion.div>
         </div>
 
-        {/* ===== Social Bar (Bottom Left rather than floating right) ===== */}
+        {/* ===== Social Bar (Bottom Left) ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="absolute bottom-0 left-0 w-full md:w-auto"
         >
-          <div className="flex border-t-4 border-r-4 border-[#1A1A1A] bg-white text-[#1A1A1A] shadow-[4px_-4px_0_0_#1A1A1A]">
+          <div className="flex w-full md:w-auto border-t-4 md:border-r-4 border-[#1A1A1A] bg-white text-[#1A1A1A] md:shadow-[4px_-4px_0_0_#1A1A1A]">
             {socialLinks.map((link, index) => {
               const Icon = link.icon;
               return (
@@ -161,7 +159,7 @@ export default function Herosection() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.name}
-                  className={`p-4 md:p-6 flex items-center justify-center transition-colors duration-200 hover:bg-[#1A1A1A] hover:text-white ${index !== socialLinks.length - 1 ? 'border-r-2 border-[#1A1A1A]' : ''}`}
+                  className={`flex-1 md:flex-none p-4 md:p-6 flex items-center justify-center transition-colors duration-200 hover:bg-[#1A1A1A] hover:text-white ${index !== socialLinks.length - 1 ? 'border-r-2 border-[#1A1A1A]' : ''}`}
                 >
                   <Icon size={24} />
                 </a>
@@ -172,7 +170,6 @@ export default function Herosection() {
 
       </section>
 
-      {/* Keeping your existing components, updated with brutalist borders */}
       <Projects className="relative z-10 min-h-screen py-24 bg-white border-b-4 border-[#1A1A1A]" />
       <Skills className="relative z-10 min-h-screen py-24 bg-[#F4F3EF]" />
     </div>
