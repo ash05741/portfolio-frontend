@@ -12,19 +12,11 @@ export default function About() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   return (
-    <section className="relative min-h-screen bg-[#f5f5f7] dark:bg-slate-950 overflow-hidden flex items-center py-24">
-
-      {/* Floating Shapes (decorative only) */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <span className="absolute top-28 left-1/4 text-blue-400 text-2xl">◯</span>
-        <span className="absolute bottom-32 right-20 text-pink-500 text-xl">△</span>
-        <span className="absolute top-40 right-1/3 text-blue-400 text-xl">◜</span>
-      </div>
-
+    <section className="relative min-h-screen bg-[#F4F3EF] border-b-4 border-[#1A1A1A] font-sans flex items-center py-24">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT TEXT */}
@@ -34,24 +26,32 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-slate-800 dark:text-white">
-            About Me
+          {/* Status Badge */}
+          <div className="inline-block px-4 py-1.5 mb-8 border-2 border-[#1A1A1A] bg-[#1A1A1A] text-white font-bold uppercase tracking-widest text-xs shadow-[4px_4px_0_0_#EA580C]">
+            CS Diploma // Class of 2026
+          </div>
+
+          <h2 className="text-6xl md:text-[5rem] font-black text-[#1A1A1A] uppercase tracking-tighter leading-none mb-8">
+            About <br /> The Dev
           </h2>
 
-          <p className="mt-8 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-            I'm <span className="text-slate-800 dark:text-white font-semibold">Asmit Shukla</span>,
-            a Full-Stack Software Engineer who thrives at the intersection of robust logic and high-fidelity design.
-          </p>
+          {/* Bio Block */}
+          <div className="space-y-6 text-[#1A1A1A] font-medium text-lg border-4 border-[#1A1A1A] bg-white p-6 shadow-[4px_4px_0_0_#1A1A1A]">
+            <p>
+              I'm <span className="font-black uppercase text-orange-700">Asmit Shukla</span>,
+              a Full-Stack Software Engineer who thrives at the intersection of robust logic and high-fidelity design.
+            </p>
 
-          <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-            My core expertise lies within the MERN stack. I specialize in architecting scalable backend APIs with Node and Express, managing data via MongoDB, and crafting pixel-perfect, highly interactive interfaces using React and modern CSS frameworks.
-          </p>
+            <p>
+              My core expertise lies within the MERN stack. I specialize in architecting scalable backend APIs with Node and Express, managing data via MongoDB, and crafting pixel-perfect, highly interactive interfaces using React and modern CSS frameworks.
+            </p>
 
-          <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-            Whether I'm structuring a complex database schema or fine-tuning a Framer Motion animation, my goal is always the same: building systems that are as performant under the hood as they are intuitive to the user.
-          </p>
+            <p>
+              Whether I'm structuring a complex database schema or fine-tuning a Framer Motion animation, my goal is always the same: building systems that are as performant under the hood as they are intuitive to the user.
+            </p>
+          </div>
 
-          {/* Highlights Grid with Staggered Animation */}
+          {/* Highlights Grid */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -68,26 +68,43 @@ export default function About() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all duration-300"
+                className="bg-white border-4 border-[#1A1A1A] p-6 shadow-[4px_4px_0_0_#1A1A1A] hover:shadow-[8px_8px_0_0_#EA580C] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300"
               >
-                <h3 className="text-3xl font-bold text-blue-500 mb-1">{item.stat}</h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">{item.label}</p>
+                <h3 className="text-4xl font-black text-[#1A1A1A] mb-1 uppercase tracking-tighter">{item.stat}</h3>
+                <p className="text-[#1A1A1A] text-xs font-bold uppercase tracking-widest border-t-2 border-[#1A1A1A] pt-2 mt-2">{item.label}</p>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        {/* RIGHT DESIGN ELEMENT */}
+        {/* RIGHT DESIGN ELEMENT (Brutalist ID Card) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, type: "spring", stiffness: 50 }}
-          className="relative hidden md:flex justify-center"
+          transition={{ duration: 0.8 }}
+          className="relative hidden md:flex justify-center items-center"
           aria-hidden="true"
         >
-          <div className="text-[min(350px,22vw)] lg:text-[350px] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-pink-400/20 to-blue-500/10 select-none leading-none">
-            ∆
+          <div className="w-full max-w-md aspect-[4/5] bg-white border-4 border-[#1A1A1A] shadow-[16px_16px_0_0_#1A1A1A] p-5 flex flex-col justify-between transform hover:rotate-1 transition-transform duration-500">
+            {/* Top Bar */}
+            <div className="flex justify-between border-b-4 border-[#1A1A1A] pb-4">
+              <span className="font-black text-xl uppercase tracking-tighter">Profile.JPG</span>
+              <span className="font-black text-2xl text-orange-700 leading-none">*</span>
+            </div>
+
+            {/* Image Container */}
+            <div className="flex-1 flex items-center justify-center bg-[#F4F3EF] border-4 border-[#1A1A1A] my-5 relative overflow-hidden group">
+              <span className="text-[#1A1A1A]/20 font-black text-4xl uppercase text-center leading-none group-hover:scale-110 transition-transform duration-500">
+                Insert <br /> Photo <br /> Here
+              </span>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t-4 border-[#1A1A1A] pt-4 flex justify-between text-sm font-bold uppercase tracking-widest text-[#1A1A1A]">
+              <span>ID: AS-2026</span>
+              <span>Status: Active</span>
+            </div>
           </div>
         </motion.div>
 
