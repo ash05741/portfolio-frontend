@@ -1,11 +1,12 @@
-
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
 
 body {
-    cursor: none !important;
-};
+  cursor: none !important;
+}
+
+;
 
 a,
 button,
@@ -15,7 +16,9 @@ select,
 label,
 [role="button"] {
   cursor: none !important;
-};
+}
+
+;
 
 html {
   scroll-behavior: smooth;

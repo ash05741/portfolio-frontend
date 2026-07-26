@@ -48,7 +48,7 @@ export default function Projects({ className }) {
   ];
 
   return (
-    <section className={`min-h-screen font-sans ${className}`}>
+    <section className={`min-h-screen bg-[#F4F3EF] font-sans ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Title Block */}
