@@ -22,10 +22,8 @@ export default function CustomCursor() {
       pos.current.y += (mouse.current.y - pos.current.y) * 0.15;
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(
-          ${pos.current.x - 10}px,
-          ${pos.current.y - 10}px
-        )`;
+        // Using -50% to perfectly center it regardless of its current width/height
+        cursorRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
       }
 
       requestAnimationFrame(animate);
@@ -34,38 +32,40 @@ export default function CustomCursor() {
     animate();
 
     return () => window.removeEventListener("mousemove", moveMouse);
-    }, []);
+  }, []);
 
-    // Detect hover on clickable elements
-    useEffect(() => {
+  // Detect hover on clickable elements
+  useEffect(() => {
     const handleMouseOver = (e) => {
-        if (e.target.closest("a, button, svg")) {
+      if (e.target.closest("a, button, input, textarea, svg")) {
         setHovering(true);
-        }
+      }
     };
 
     const handleMouseOut = (e) => {
-        if (e.target.closest("a, button, svg")) {
+      if (e.target.closest("a, button, input, textarea, svg")) {
         setHovering(false);
-        }
+      }
     };
 
     document.addEventListener("mouseover", handleMouseOver);
     document.addEventListener("mouseout", handleMouseOut);
 
     return () => {
-        document.removeEventListener("mouseover", handleMouseOver);
-        document.removeEventListener("mouseout", handleMouseOut);
+      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseout", handleMouseOut);
     };
-    }, []);
+  }, []);
 
   return (
     <div
       ref={cursorRef}
       className={`
-        fixed top-0 left-0 rounded-full pointer-events-none z-[9999]
-        bg-blue-400/50 transition-all duration-300 ease-out
-        ${hovering ? "w-10 h-10" : "w-4 h-4"}
+        fixed top-0 left-0 pointer-events-none z-[9999] transition-all duration-200 ease-out rounded-none
+        ${hovering
+          ? "w-10 h-10 bg-transparent border-4 border-[#1A1A1A] shadow-[4px_4px_0_0_#EA580C]"
+          : "w-4 h-4 bg-[#1A1A1A]"
+        }
       `}
     />
   );

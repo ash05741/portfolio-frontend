@@ -40,7 +40,7 @@ const socialLinks = [
 export default function Herosection() {
   return (
     <div className="bg-[#F4F3EF] text-[#1A1A1A] selection:bg-orange-700 selection:text-white font-sans">
-      <section className="relative min-h-screen flex items-center z-0 py-20 overflow-hidden border-b-4 border-[#1A1A1A]">
+      <section className="relative min-h-screen flex items-center z-0 pt-32 pb-20 md:pt-24 overflow-hidden border-b-4 border-[#1A1A1A]">
 
         {/* ===== Main Container (Editorial Grid) ===== */}
         <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-8 items-center relative z-10 pb-16 md:pb-0">

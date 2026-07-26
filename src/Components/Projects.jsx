@@ -6,7 +6,7 @@ import Weather from "../assets/Weather.png";
 import Bot from "../assets/Bot.png";
 import DevSync from "../assets/DevSync.png";
 
-export default function Projects({ className }) {
+export default function Projects() {
   const projects = [
     {
       title: "Finora",
@@ -48,7 +48,7 @@ export default function Projects({ className }) {
   ];
 
   return (
-    <section id="projects" className={`min-h-screen bg-[#F4F3EF] font-sans pt-32 md:pt-40 scroll-mt-24 ${className}`}>
+    <section id="projects" className="min-h-screen bg-[#F4F3EF] font-sans pt-32 md:pt-40 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Title Block */}
@@ -81,7 +81,7 @@ export default function Projects({ className }) {
               >
                 {/* IMAGE CARD */}
                 <div
-                  className={`group relative bg-white border-4 border-[#1A1A1A] shadow-[8px_8px_0_0_#1A1A1A] hover:shadow-[12px_12px_0_0_#EA580C] transition-all duration-300 hover:-translate-y-1 hover:-translate-x-1 aspect-video ${isReverse ? "md:order-2" : "md:order-1"}`}
+                  className={`group relative bg-[#F4F3EF] border-4 border-[#1A1A1A] shadow-[8px_8px_0_0_#1A1A1A] hover:shadow-[12px_12px_0_0_#EA580C] transition-all duration-300 hover:-translate-y-1 hover:-translate-x-1 aspect-video ${isReverse ? "md:order-2" : "md:order-1"}`}
                 >
                   {project.featured && (
                     <span className="absolute -top-4 -left-4 z-20 px-4 py-1 text-xs font-bold uppercase tracking-widest bg-orange-700 text-white border-2 border-[#1A1A1A] shadow-[4px_4px_0_0_#1A1A1A]">
@@ -112,7 +112,7 @@ export default function Projects({ className }) {
                     {project.title}
                   </h3>
 
-                  <div className="p-6 border-l-4 border-[#1A1A1A] bg-white shadow-[4px_4px_0_0_#1A1A1A] mb-8">
+                  <div className="p-6 border-4 border-[#1A1A1A] bg-[#F4F3EF] shadow-[4px_4px_0_0_#1A1A1A] mb-8">
                     <p className="text-[#1A1A1A] font-medium leading-relaxed text-lg">
                       {project.description}
                     </p>
@@ -136,7 +136,7 @@ export default function Projects({ className }) {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex items-center gap-3 px-6 py-3 border-2 border-[#1A1A1A] bg-white text-[#1A1A1A] font-bold uppercase tracking-wide shadow-[4px_4px_0_0_#1A1A1A] hover:bg-orange-700 hover:text-white hover:shadow-[6px_6px_0_0_#1A1A1A] active:translate-y-1 active:translate-x-1 active:shadow-[2px_2px_0_0_#1A1A1A] transition-all"
+                      className="group flex items-center gap-3 px-6 py-3 border-2 border-[#1A1A1A] bg-[#F4F3EF] text-[#1A1A1A] font-bold uppercase tracking-wide shadow-[4px_4px_0_0_#1A1A1A] hover:bg-orange-700 hover:text-white hover:shadow-[6px_6px_0_0_#1A1A1A] active:translate-y-1 active:translate-x-1 active:shadow-[2px_2px_0_0_#1A1A1A] transition-all"
                     >
                       <FaGithub className="text-xl" />
                       Source

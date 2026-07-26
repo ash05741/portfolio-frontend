@@ -114,7 +114,7 @@ export default function Skills({ className }) {
 
   /* ---------------- Section ---------------- */
   return (
-    <section className={`min-h-screen py-24 bg-[#F4F3EF] font-sans ${className}`}>
+    <section className={`min-h-screen py-40 bg-[#F4F3EF] font-sans ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Title Block */}

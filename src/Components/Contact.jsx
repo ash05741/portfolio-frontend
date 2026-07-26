@@ -27,11 +27,11 @@ export default function Contact() {
       });
 
       const result = await response.json();
-      
-      if(result.success) {
+
+      if (result.success) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" }); // Clear the form
-        
+
         // Reset the success message after 5 seconds
         setTimeout(() => setStatus("idle"), 5000);
       } else {
@@ -44,136 +44,112 @@ export default function Contact() {
   };
 
   return (
-    <section
-      className="
-      min-h-screen py-28
-      bg-[#f5f5f7]
-      dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900
-    "
-    >
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-5xl font-bold text-slate-700 dark:text-white mb-16">
-          Contact Me
-        </h2>
+    <section id="contact" className="min-h-screen py-32 bg-[#F4F3EF] font-sans">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Title Block */}
+        <div className="flex flex-col mb-16 border-b-4 border-[#1A1A1A] pb-6">
+          <h2 className="text-6xl md:text-[5rem] font-black uppercase tracking-tighter text-[#1A1A1A] leading-none">
+            Contact
+          </h2>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
+
           {/* LEFT INFO */}
-          <div>
-            <h3 className="text-2xl font-semibold text-slate-700 dark:text-white ">
-              Let's work together
+          <div className="flex flex-col gap-8">
+            <h3 className="text-4xl md:text-5xl font-black text-[#1A1A1A] uppercase tracking-tight leading-none">
+              Let's Work <br /> Together
             </h3>
-            <p className="text-slate-500 dark:text-slate-300 mt-4 leading-relaxed">
-              If you have a project idea, collaboration opportunity,
-              or just want to say hello, feel free to send a message.
-            </p>
-            <div className="flex items-center gap-3 mt-6 text-slate-600 dark:text-slate-300">
-              <Mail size={20} />
-              <span>asmitshukla0505@gmail.com</span>
+
+            <div className="p-6 border-4 border-[#1A1A1A] bg-white shadow-[4px_4px_0_0_#1A1A1A]">
+              <p className="text-[#1A1A1A] font-medium leading-relaxed text-lg">
+                If you have a project idea, collaboration opportunity,
+                or just want to say hello, drop a message. No fluff, just straight to business.
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-4 p-4 border-4 border-[#1A1A1A] bg-orange-700 text-white shadow-[6px_6px_0_0_#1A1A1A] w-fit">
+              <Mail size={24} />
+              <span className="font-bold text-lg tracking-wide">asmitshukla0505@gmail.com</span>
             </div>
           </div>
 
           {/* FORM CARD */}
           <form
             onSubmit={handleSubmit}
-            className="
-            flex flex-col gap-6
-            bg-white
-            dark:bg-slate-900/60
-            backdrop-blur-lg
-            border border-slate-200
-            dark:border-slate-700
-            rounded-2xl
-            p-8
-            shadow-lg
-          "
+            className="flex flex-col gap-6 bg-white border-4 border-[#1A1A1A] p-8 shadow-[12px_12px_0_0_#1A1A1A]"
           >
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your Name"
-              required
-              className="
-              p-4 rounded-lg
-              bg-white dark:bg-slate-950
-              border border-slate-200 dark:border-slate-700
-              text-slate-700 dark:text-white
-              placeholder:text-slate-400 dark:placeholder:text-slate-500
-              hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 transition
-            "
-            />
+            <div className="flex flex-col gap-2">
+              <label className="text-[#1A1A1A] font-bold uppercase tracking-wide text-sm">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="JOHN DOE"
+                required
+                className="w-full p-4 bg-[#F4F3EF] border-2 border-[#1A1A1A] text-[#1A1A1A] font-bold placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-orange-700 focus:shadow-[4px_4px_0_0_#EA580C] transition-all rounded-none"
+              />
+            </div>
 
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Your Email"
-              required
-              className="
-              p-4 rounded-lg
-              bg-white dark:bg-slate-950
-              border border-slate-200 dark:border-slate-700
-              text-slate-700 dark:text-white
-              placeholder:text-slate-400 dark:placeholder:text-slate-500
-              hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 transition
-            "
-            />
+            <div className="flex flex-col gap-2">
+              <label className="text-[#1A1A1A] font-bold uppercase tracking-wide text-sm">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="JOHN@EXAMPLE.COM"
+                required
+                className="w-full p-4 bg-[#F4F3EF] border-2 border-[#1A1A1A] text-[#1A1A1A] font-bold placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-orange-700 focus:shadow-[4px_4px_0_0_#EA580C] transition-all rounded-none"
+              />
+            </div>
 
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="5"
-              placeholder="Your Message"
-              required
-              className="
-              p-4 rounded-lg resize-none
-              bg-white dark:bg-slate-950
-              border border-slate-200 dark:border-slate-700
-              text-slate-700 dark:text-white
-              placeholder:text-slate-400 dark:placeholder:text-slate-500
-              hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 transition
-            "
-            />
+            <div className="flex flex-col gap-2">
+              <label className="text-[#1A1A1A] font-bold uppercase tracking-wide text-sm">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="5"
+                placeholder="TELL ME ABOUT YOUR PROJECT..."
+                required
+                className="w-full p-4 bg-[#F4F3EF] border-2 border-[#1A1A1A] text-[#1A1A1A] font-bold placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-orange-700 focus:shadow-[4px_4px_0_0_#EA580C] transition-all resize-none rounded-none"
+              />
+            </div>
 
             <button
               type="submit"
               disabled={status === "loading"}
-              className="
-              group inline-flex items-center justify-center gap-3
-              bg-red-500 text-white px-6 py-3
-              rounded-lg font-semibold
-              hover:bg-red-600 dark:hover:bg-red-500/90
-              transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed
-            "
+              className="group flex items-center justify-center gap-3 w-full p-4 mt-2 border-2 border-[#1A1A1A] bg-[#1A1A1A] text-white font-black uppercase tracking-widest text-lg shadow-[6px_6px_0_0_#EA580C] hover:bg-orange-700 hover:shadow-[8px_8px_0_0_#1A1A1A] active:translate-y-1 active:translate-x-1 active:shadow-[2px_2px_0_0_#1A1A1A] transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {status === "loading" ? (
                 <>
-                  Sending...
-                  <Loader2 size={18} className="animate-spin" />
+                  TRANSMITTING...
+                  <Loader2 size={24} className="animate-spin" />
                 </>
               ) : (
                 <>
-                  Send Message
-                  <Send size={18} className="group-hover:translate-x-1 transition" />
+                  SEND MESSAGE
+                  <Send size={24} className="group-hover:translate-x-2 transition-transform" />
                 </>
               )}
             </button>
 
             {/* Status Messages */}
             {status === "success" && (
-              <p className="text-green-500 text-center font-medium mt-2">
-                Message sent successfully! I'll get back to you soon.
-              </p>
+              <div className="p-4 border-4 border-[#1A1A1A] bg-green-400 text-[#1A1A1A] font-bold uppercase tracking-wide text-center shadow-[4px_4px_0_0_#1A1A1A]">
+                Message received. I'll be in touch.
+              </div>
             )}
             {status === "error" && (
-              <p className="text-red-500 text-center font-medium mt-2">
-                Something went wrong. Please try again later.
-              </p>
+              <div className="p-4 border-4 border-[#1A1A1A] bg-red-500 text-white font-bold uppercase tracking-wide text-center shadow-[4px_4px_0_0_#1A1A1A]">
+                Transmission failed. Try again.
+              </div>
             )}
           </form>
+
         </div>
       </div>
     </section>
