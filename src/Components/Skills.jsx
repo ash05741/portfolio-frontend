@@ -13,16 +13,16 @@ export default function Skills({ className }) {
   const backend = [
     { name: "Node.js", level: 80 },
     { name: "Express.js", level: 80 },
-    { name: "MongoDB", level: 75 },
     { name: "REST APIs", level: 85 },
-    { name: "PHP", level: 60 },
+    { name: "GraphQL", level: 80 }, // Swapped PHP out for GraphQL
+    { name: "MongoDB", level: 75 },
   ];
 
   const tools = [
     { name: "Git & GitHub", level: 85 },
     { name: "Firebase", level: 75 },
     { name: "Postman", level: 80 },
-    { name: "Antigravity", level: 90 },
+    { name: "Apollo Client", level: 75 }, // Added Apollo Client here
     { name: "Figma (UI Design)", level: 75 },
   ];
 
@@ -56,7 +56,6 @@ export default function Skills({ className }) {
               </span>
             )}
           </span>
-          {/* Added the percentage text for that raw data feel */}
           <span className="text-xs text-slate-500">{skill.level}%</span>
         </div>
 
@@ -149,13 +148,13 @@ export default function Skills({ className }) {
           <SkillCard
             title="Backend"
             icon={<Server size={24} />}
-            blurb="Designing APIs and data layers that scale cleanly."
+            blurb="Designing APIs and data layers that scale cleanly with REST and GraphQL."
             skills={backend}
           />
           <SkillCard
             title="Systems"
             icon={<Wrench size={24} />}
-            blurb="The workflow and tooling that ties projects together."
+            blurb="The workflow and state-management tooling that ties projects together."
             skills={tools}
           />
         </motion.div>

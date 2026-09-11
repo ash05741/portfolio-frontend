@@ -31,7 +31,7 @@ const socialLinks = [
   },
   {
     name: "Website",
-    href: "https://your-domain-here.com",
+    href: "https://asmitshukla.vercel.app/",
     icon: Globe,
     hoverClass: "group-hover:text-orange-700 md:hover:-translate-y-1 transition-transform",
   },
@@ -143,28 +143,32 @@ export default function Herosection() {
         </div>
 
         {/* ===== Social Bar (Bottom Left) ===== */}
+        {/* ===== Social Bar ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="absolute bottom-0 left-0 w-full md:w-auto"
+          className="absolute bottom-0 left-0 right-0 pointer-events-none"
         >
-          <div className="flex w-full md:w-auto border-t-4 md:border-r-4 border-[#1A1A1A] bg-white text-[#1A1A1A] md:shadow-[4px_-4px_0_0_#1A1A1A]">
-            {socialLinks.map((link, index) => {
-              const Icon = link.icon;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={link.name}
-                  className={`flex-1 md:flex-none p-4 md:p-6 flex items-center justify-center transition-colors duration-200 hover:bg-[#1A1A1A] hover:text-white ${index !== socialLinks.length - 1 ? 'border-r-2 border-[#1A1A1A]' : ''}`}
-                >
-                  <Icon size={24} />
-                </a>
-              );
-            })}
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="pointer-events-auto flex w-full md:w-fit border-t-4 md:border-x-4 border-[#1A1A1A] bg-white text-[#1A1A1A] md:shadow-[4px_-4px_0_0_#1A1A1A]">
+              {socialLinks.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={link.name}
+                    className={`flex-1 md:flex-none p-4 md:p-6 flex items-center justify-center transition-colors duration-200 hover:bg-[#1A1A1A] hover:text-white ${index !== socialLinks.length - 1 ? "border-r-2 border-[#1A1A1A]" : ""
+                      }`}
+                  >
+                    <Icon size={24} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 
