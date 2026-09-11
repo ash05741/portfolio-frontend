@@ -14,7 +14,7 @@ export default function Skills({ className }) {
     { name: "Node.js", level: 80 },
     { name: "Express.js", level: 80 },
     { name: "REST APIs", level: 85 },
-    { name: "GraphQL", level: 80 }, // Swapped PHP out for GraphQL
+    { name: "GraphQL", level: 80 },
     { name: "MongoDB", level: 75 },
   ];
 
@@ -22,7 +22,7 @@ export default function Skills({ className }) {
     { name: "Git & GitHub", level: 85 },
     { name: "Firebase", level: 75 },
     { name: "Postman", level: 80 },
-    { name: "Apollo Client", level: 75 }, // Added Apollo Client here
+    { name: "Apollo Client", level: 75 },
     { name: "Figma (UI Design)", level: 75 },
   ];
 
