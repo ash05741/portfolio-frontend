@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { Globe, ImageOff } from "lucide-react";
 import finora from "../assets/finora.png";
-import Weather from "../assets/Weather.png";
 import Bot from "../assets/Bot.png";
 import DevSync from "../assets/DevSync.png";
-
+import AkashixCore from "../assets/AkashixCore.png";
 export default function Projects() {
   const projects = [
     {
@@ -27,13 +26,14 @@ export default function Projects() {
       live: "#",
     },
     {
-      title: "Weather Forecast App",
+      title: "AkashixCore",
       description:
-        "A responsive web application that fetches real-time weather data and 5-day forecasts. Engineered to handle asynchronous API requests, complex JSON data mapping, and dynamic data visualization within a modern, minimalist UI.",
-      tech: ["React", "Tailwind CSS", "Chart.js", "OpenWeatherMap API"],
-      image: Weather,
-      github: "https://github.com/ash05741/Weather_APP",
-      live: "#",
+        "A full-stack worldbuilding SaaS platform engineered to manage complex character entities and interconnected lore. Features a custom GraphQL API and utilizes Apollo's in-memory cache for instantaneous, real-time UI synchronization without page reloads.",
+      tech: ["React", "TypeScript", "Node.js", "GraphQL", "MongoDB", "Tailwind CSS"],
+      image: AkashixCore,
+      github: "https://github.com/ash05741/Akashix",
+      live: "https://akashix-frontend.vercel.app/",
+      featured: true,
     },
     {
       title: "DevSync",
