@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export default function About() {
-  /* ---------------- Framer Motion Variants ---------------- */
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -19,7 +19,6 @@ export default function About() {
     <section className="relative min-h-screen bg-[#F4F3EF] border-b-4 border-[#1A1A1A] font-sans flex items-center py-24">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-        {/* LEFT TEXT */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
