@@ -47,11 +47,11 @@ export default function Skills({ className }) {
     const isStrong = skill.level >= 85;
     return (
       <div className="space-y-2">
-        <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wide text-[#1A1A1A]">
+        <div className="font-mono flex justify-between items-center text-sm font-bold uppercase tracking-wide text-[#1A1A1A]">
           <span className="flex items-center gap-3">
             {skill.name}
             {isStrong && (
-              <span className="text-[10px] uppercase tracking-widest font-bold text-white bg-orange-700 border-2 border-[#1A1A1A] px-1.5 py-0.5 shadow-[2px_2px_0_0_#1A1A1A]">
+              <span className="font-mono text-[10px] uppercase tracking-widest font-bold text-white bg-orange-700 border-2 border-[#1A1A1A] px-1.5 py-0.5 shadow-[2px_2px_0_0_#1A1A1A]">
                 Core
               </span>
             )}
@@ -92,13 +92,13 @@ export default function Skills({ className }) {
         <div className="flex items-center justify-center w-12 h-12 bg-orange-700 border-2 border-[#1A1A1A] text-white shadow-[4px_4px_0_0_#1A1A1A]">
           {icon}
         </div>
-        <h3 className="text-2xl font-black text-[#1A1A1A] uppercase tracking-tight">
+        <h3 className="font-display text-2xl font-black text-[#1A1A1A] uppercase tracking-tight">
           {title}
         </h3>
       </div>
 
       <div className="p-4 border-l-4 border-[#1A1A1A] bg-[#F4F3EF] shadow-[4px_4px_0_0_#1A1A1A] mb-8">
-        <p className="text-sm font-bold text-[#1A1A1A] leading-relaxed">
+        <p className="font-body text-sm font-bold text-[#1A1A1A] leading-relaxed">
           {blurb}
         </p>
       </div>
@@ -113,7 +113,7 @@ export default function Skills({ className }) {
 
   /* ---------------- Section ---------------- */
   return (
-    <section className={`min-h-screen py-40 bg-[#F4F3EF] font-sans ${className}`}>
+    <section className={`min-h-screen py-40 bg-[#F4F3EF] font-body ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Title Block */}
@@ -123,10 +123,10 @@ export default function Skills({ className }) {
           viewport={{ once: true }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-24 border-b-4 border-[#1A1A1A] pb-6"
         >
-          <h2 className="text-6xl md:text-[5rem] font-black uppercase tracking-tighter text-[#1A1A1A] leading-none">
+          <h2 className="font-display text-6xl md:text-[5rem] font-black uppercase tracking-tighter text-[#1A1A1A] leading-none">
             Technical <br /> Arsenal
           </h2>
-          <div className="mt-6 md:mt-0 px-4 py-2 border-2 border-[#1A1A1A] bg-[#1A1A1A] text-white font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0_0_#EA580C]">
+          <div className="font-mono mt-6 md:mt-0 px-4 py-2 border-2 border-[#1A1A1A] bg-[#1A1A1A] text-white font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0_0_#EA580C]">
             Core Competencies
           </div>
         </motion.div>
