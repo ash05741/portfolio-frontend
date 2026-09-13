@@ -29,7 +29,7 @@ export default function Navbar() {
           </Link>
 
           {/* 2. RIGHT SIDE: Navigation */}
-          <div className="flex items-center space-x-4">
+          <div className="font-display flex items-center space-x-4">
 
             {/* Desktop Links (Hidden on mobile) */}
             <div className="hidden md:flex items-center space-x-3">

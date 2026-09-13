@@ -39,7 +39,8 @@ const socialLinks = [
 
 export default function Herosection() {
   return (
-    <div className="bg-[#F4F3EF] text-[#1A1A1A] selection:bg-orange-700 selection:text-white font-sans">
+    // Applied font-body as the global default for this section
+    <div className="bg-[#F4F3EF] text-[#1A1A1A] selection:bg-orange-700 selection:text-white font-body">
       <section className="relative min-h-screen flex items-center z-0 pt-32 pb-20 md:pt-24 overflow-hidden border-b-4 border-[#1A1A1A]">
 
         {/* ===== Main Container (Editorial Grid) ===== */}
@@ -55,14 +56,16 @@ export default function Herosection() {
 
             {/* TOP ROW */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="px-3 py-1 border-2 border-[#1A1A1A] text-xs font-bold uppercase tracking-widest bg-orange-700 text-white shadow-[2px_2px_0_0_#1A1A1A]">
+              {/* Used font-mono for technical metadata tags */}
+              <div className="font-mono px-3 py-1 border-2 border-[#1A1A1A] text-xs font-bold uppercase tracking-widest bg-orange-700 text-white shadow-[2px_2px_0_0_#1A1A1A]">
                 Portfolio / 2026
               </div>
             </div>
 
             {/* NAME BLOCK */}
             <div className="mb-10">
-              <h1 className="text-6xl sm:text-7xl md:text-[7rem] font-black tracking-tight md:tracking-tighter leading-[0.85] uppercase">
+              {/* Used font-display for the massive structural anchor */}
+              <h1 className="font-display text-6xl sm:text-7xl md:text-[7rem] font-black tracking-tight md:tracking-tighter leading-[0.85] uppercase">
                 Asmit
                 <br />
                 <span className="text-transparent [-webkit-text-stroke:1.5px_#1A1A1A] md:[-webkit-text-stroke:3px_#1A1A1A]">Shukla</span>
@@ -74,28 +77,28 @@ export default function Herosection() {
 
               {/* Role Card */}
               <div className="border-2 border-[#1A1A1A] p-5 bg-white shadow-[4px_4px_0_0_#1A1A1A] hover:shadow-[6px_6px_0_0_#1A1A1A] transition-shadow">
-                <span className="block text-xs font-bold uppercase text-orange-700 mb-2">Role</span>
-                <p className="text-xl font-bold leading-tight">
+                <span className="font-mono block text-xs font-bold uppercase text-orange-700 mb-2">Role</span>
+                <p className="font-display text-xl font-bold leading-tight">
                   Full-Stack Web Architect
                 </p>
               </div>
 
               {/* Status Card */}
               <div className="border-2 border-[#1A1A1A] p-5 bg-[#1A1A1A] text-[#F4F3EF] shadow-[4px_4px_0_0_#EA580C] hover:shadow-[6px_6px_0_0_#EA580C] transition-shadow">
-                <span className="block text-xs font-bold uppercase text-orange-500 mb-2">Status</span>
+                <span className="font-mono block text-xs font-bold uppercase text-orange-500 mb-2">Status</span>
                 <div className="flex items-center gap-3 mt-1">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
                   </span>
-                  <p className="text-sm font-bold">Ready for deployment</p>
+                  <p className="font-body text-sm font-bold">Ready for deployment</p>
                 </div>
               </div>
 
               {/* Focus Card (Spans full width) */}
               <div className="sm:col-span-2 border-2 border-[#1A1A1A] p-5 bg-white shadow-[4px_4px_0_0_#1A1A1A] hover:shadow-[6px_6px_0_0_#1A1A1A] transition-shadow">
-                <span className="block text-xs font-bold uppercase text-orange-700 mb-2">Focus</span>
-                <p className="text-lg font-medium text-slate-700 leading-snug">
+                <span className="font-mono block text-xs font-bold uppercase text-orange-700 mb-2">Focus</span>
+                <p className="font-body text-lg font-medium text-slate-700 leading-snug">
                   Building scalable MERN applications, optimizing high-performance APIs, and crafting precision-grade React interfaces.
                 </p>
               </div>
@@ -106,7 +109,7 @@ export default function Herosection() {
             <div className="mt-10">
               <Link
                 to="/about"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-[#1A1A1A] text-white font-bold text-lg border-2 border-[#1A1A1A] shadow-[4px_4px_0_0_#EA580C] hover:bg-orange-700 hover:text-white hover:shadow-[6px_6px_0_0_#1A1A1A] transition-all active:translate-y-1 active:shadow-[2px_2px_0_0_#1A1A1A]"
+                className="group font-display inline-flex items-center gap-3 px-8 py-4 bg-[#1A1A1A] text-white font-bold text-lg border-2 border-[#1A1A1A] shadow-[4px_4px_0_0_#EA580C] hover:bg-orange-700 hover:text-white hover:shadow-[6px_6px_0_0_#1A1A1A] transition-all active:translate-y-1 active:shadow-[2px_2px_0_0_#1A1A1A]"
               >
                 About Me
                 <ArrowRight
@@ -125,16 +128,17 @@ export default function Herosection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:flex col-span-5 justify-center items-center relative"
           >
-            <div className="text-[350px] leading-none font-serif text-[#1A1A1A] opacity-10 select-none absolute">
+            {/* Swapped to font-display to match your large typography */}
+            <div className="text-[350px] leading-none font-display text-[#1A1A1A] opacity-10 select-none absolute">
               *
             </div>
             <div className="w-full aspect-square border-4 border-[#1A1A1A] bg-white shadow-[12px_12px_0_0_#1A1A1A] flex flex-col justify-between p-6 relative z-10">
               <div className="flex justify-between w-full border-b-2 border-[#1A1A1A] pb-4">
-                <span className="font-bold text-sm uppercase">Fig. 01</span>
-                <span className="font-bold text-sm uppercase text-orange-700">MERN</span>
+                <span className="font-mono font-bold text-sm uppercase">Fig. 01</span>
+                <span className="font-mono font-bold text-sm uppercase text-orange-700">MERN</span>
               </div>
               <div className="flex-1 flex items-center justify-center">
-                <span className="text-4xl font-black text-[#1A1A1A]/20 uppercase text-center">
+                <span className="font-display text-4xl font-black text-[#1A1A1A]/20 uppercase text-center">
                   Insert <br /> Render <br /> Here
                 </span>
               </div>
@@ -142,7 +146,6 @@ export default function Herosection() {
           </motion.div>
         </div>
 
-        {/* ===== Social Bar (Bottom Left) ===== */}
         {/* ===== Social Bar ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
