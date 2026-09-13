@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Technical Copyright */}
           <div className="flex flex-col">
-            <p className="text-[#1A1A1A] text-xl font-black uppercase tracking-widest leading-tight">
+            <p className="font-body text-[#1A1A1A] text-xl font-black uppercase tracking-widest leading-tight">
               &copy; {new Date().getFullYear()} Asmit Shukla
             </p>
             <p className="text-[#1A1A1A] text-sm font-bold uppercase tracking-wider mt-1">
