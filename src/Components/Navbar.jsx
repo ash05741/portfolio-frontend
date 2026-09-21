@@ -14,14 +14,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#F4F3EF] border-b-4 border-[#1A1A1A] font-sans transition-all">
+    // Replaced solid bg with a left-to-right gradient that stops at 30%. Swapped to font-body.
+    <nav className="fixed top-0 w-full z-50 bg-[#F4F3EF] bg-gradient-to-r from-orange-600/20 via-[#F4F3EF] via-30% to-[#F4F3EF] border-b-4 border-[#1A1A1A] font-body transition-all">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-24">
 
           {/* 1. LEFT SIDE: Brutalist Logo Block */}
           <Link
             to="/"
-            className="group flex items-center justify-center bg-[#1A1A1A] text-[#F4F3EF] px-3 py-2 border-2 border-[#1A1A1A] shadow-[4px_4px_0_0_#EA580C] hover:shadow-[6px_6px_0_0_#EA580C] hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-[2px_2px_0_0_#EA580C]"
+            className="font-display group flex items-center justify-center bg-[#1A1A1A] text-[#F4F3EF] px-3 py-2 border-2 border-[#1A1A1A] shadow-[4px_4px_0_0_#EA580C] hover:shadow-[6px_6px_0_0_#EA580C] hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-[2px_2px_0_0_#EA580C]"
           >
             <span className="text-3xl font-black tracking-tighter uppercase">
               ∆<span className="text-orange-500">S</span>
@@ -65,11 +66,11 @@ export default function Navbar() {
                 key={link.name}
                 to={link.path}
                 onClick={() => setMobileMenuIsOpen(false)}
-                className={`px-6 py-5 font-black text-xl uppercase tracking-widest text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-colors flex justify-between items-center ${index !== navLinks.length - 1 ? "border-b-2 border-[#1A1A1A]" : "border-b-4 border-[#1A1A1A]"
+                className={`font-display px-6 py-5 font-black text-xl uppercase tracking-widest text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-colors flex justify-between items-center ${index !== navLinks.length - 1 ? "border-b-2 border-[#1A1A1A]" : "border-b-4 border-[#1A1A1A]"
                   }`}
               >
                 {link.name}
-                <span className="text-orange-700 text-2xl leading-none">*</span>
+                <span className="font-mono text-orange-700 text-2xl leading-none">*</span>
               </Link>
             ))}
           </div>

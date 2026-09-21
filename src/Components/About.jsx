@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ME from "../assets/ME.png";
 
 export default function About() {
 
@@ -100,7 +101,7 @@ export default function About() {
             {/* Image Container */}
             <div className="flex-1 flex items-center justify-center bg-[#F4F3EF] border-4 border-[#1A1A1A] my-5 relative overflow-hidden group">
               <span className="font-display text-[#1A1A1A]/20 font-black text-4xl uppercase text-center leading-none group-hover:scale-110 transition-transform duration-500">
-                Insert <br /> Photo <br /> Here
+                <img src={ME} alt="" />
               </span>
             </div>
 
